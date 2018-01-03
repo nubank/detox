@@ -56,8 +56,8 @@ class Detox {
     const [sessionConfig, shouldStartServer] = await this._chooseSession(deviceConfig);
 
     if (shouldStartServer) {
-      const server = new URL(sessionConfig.server);
-      this.server = new DetoxServer(server.port, server.hostname);
+      const hostConfig = new URL(sessionConfig.host);
+      this.server = new DetoxServer(hostConfig.port, hostConfig.hostname);
     }
 
     this.client = new Client(sessionConfig);
@@ -108,7 +108,7 @@ class Detox {
 
   async _chooseSession(deviceConfig) {
     let session = deviceConfig.session;
-    let shouldStartServer = false;
+    let shouldStartServer = deviceConfig.session.shouldStartServer;
 
     if (!session) {
       session = this.userConfig.session;
