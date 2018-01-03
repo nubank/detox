@@ -24,6 +24,7 @@
   "author": "Tal Kol <talkol@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "commander": "^2.9.0",
     "lodash": "^4.13.1",
     "npmlog": "^4.0.2",
     "ws": "^1.1.0"
