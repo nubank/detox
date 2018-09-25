@@ -1,5 +1,6 @@
 if (process.platform === "darwin") {
-	require("child_process").execFileSync(`${__dirname}/build_framework.ios.sh`, {
+	const path = `${__dirname}/build_framework.ios.sh`.replace(/(\s+)/g, '\\$1');
+	require("child_process").execFileSync(path, {
 		stdio: "inherit"
 	});
 }
